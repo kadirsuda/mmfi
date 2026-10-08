@@ -1,0 +1,64 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MMFI — Multi Money Flow</title><style>
+:root{--bg:#070b1a;--sf:#0d1430;--sf2:#111a3d;--tx:#e6f0ff;--mu:#8ea0cf;--ac:#22e3ff;--ac2:#7c5cff;--bd:#1f2b5a}
+*{box-sizing:border-box}html,body{margin:0}body{background:radial-gradient(1100px 520px at 12% -8%,#16224f 0,var(--bg) 58%);color:var(--tx);font:16px/1.65 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--ac)}.w{max-width:1040px;margin:0 auto;padding:0 22px}
+header{display:flex;align-items:center;gap:14px;padding:18px 0}
+.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font-weight:800;color:#06102a}
+.brand b{font-size:18px;letter-spacing:.02em}.brand small{display:block;color:var(--mu);font-size:12px;margin-top:-2px}
+nav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+nav a{color:var(--mu);text-decoration:none;padding:7px 12px;border-radius:9px;font-size:14px}nav a:hover,nav a.on{color:var(--tx);background:var(--sf2)}
+.lang{border:1px solid var(--bd);background:transparent;color:var(--tx);border-radius:9px;padding:6px 11px;cursor:pointer;font:600 13px system-ui}
+.hero{padding:54px 0 36px}.hero .tag{display:inline-block;border:1px solid var(--bd);color:var(--ac);padding:4px 12px;border-radius:99px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.1;margin:18px 0 14px;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mu);font-size:18px;max-width:760px}
+h2{font-size:26px;margin:0 0 6px}.sec{padding:34px 0}.sub{color:var(--mu);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{background:linear-gradient(180deg,var(--sf),#0a1030);border:1px solid var(--bd);border-radius:16px;padding:20px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--mu);font-size:14.5px}.ic{font-size:24px;margin-bottom:8px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.step{border:1px solid var(--bd);border-radius:14px;padding:16px;background:var(--sf)}
+.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ac);color:#06102a;font-weight:800;margin-bottom:8px}
+.step b{display:block}.step span{color:var(--mu);font-size:14px}
+.note{border:1px solid #3a2f12;background:#1a1606;color:#e9d9a0;border-radius:14px;padding:16px 18px;font-size:14.5px}
+.legal h2{margin-top:26px;font-size:20px}.legal p,.legal li{color:#c7d3f2}
+footer{border-top:1px solid var(--bd);margin-top:30px;padding:24px 0 40px;color:var(--mu);font-size:13.5px}
+footer .row{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
+[data-l]{display:none}body.tr [data-l=tr],body.en [data-l=en]{display:revert}
+</style></head><body class="tr"><div class="w"><header><div class="logo">M</div><div class="brand"><b>MMFI</b><small>Multi Money Flow</small></div><nav><a href="index.html" class="on"><span data-l="tr">Ana sayfa</span><span data-l="en">Home</span></a><a href="terms.html" class=""><span data-l="tr">Hizmet Şartları</span><span data-l="en">Terms</span></a><a href="privacy.html" class=""><span data-l="tr">Gizlilik</span><span data-l="en">Privacy</span></a><button class="lang" id="lg">EN</button></nav></header>
+<section class="hero"><span class="tag"><span data-l="tr">Bağımsız araştırma · 2026</span><span data-l="en">Independent research · 2026</span></span>
+<h1><span data-l="tr">Algoritmik işlem araştırması, <em>açıkça test edilir</em>.</span><span data-l="en">Algorithmic trading research, <em>tested in the open</em>.</span></h1>
+<p class="lead"><span data-l="tr">MMFI (Multi Money Flow), piyasa verisini, strateji testlerini ve risk ölçümlerini tek çatıda toplayan bağımsız bir araştırma ve eğitim projesidir. Bulduklarımızı — başarısız çıkanlar dahil — videolarla anlatırız.</span><span data-l="en">MMFI (Multi Money Flow) is an independent research and education project that brings market data, strategy testing and risk measurement under one roof. We explain what we find, including what fails, in educational videos.</span></p></section>
+
+<section class="sec"><h2><span data-l="tr">Ne geliştiriyoruz?</span><span data-l="en">What we build</span></h2><p class="sub"><span data-l="tr">Dört parça, tek bir araştırma hattı.</span><span data-l="en">Four components, one research pipeline.</span></p>
+<div class="grid">
+<div class="card"><div class="ic">🗄️</div><h3><span data-l="tr">Veri Merkezi</span><span data-l="en">Data Center</span></h3><p><span data-l="tr">BIST, küresel hisseler, kripto, döviz, kıymetli madenler ve fonlar için tek, doğrulanmış veri havuzu.</span><span data-l="en">One validated data pool for Borsa Istanbul, global equities, crypto, FX, precious metals and funds.</span></p></div>
+<div class="card"><div class="ic">🧪</div><h3><span data-l="tr">Strateji Laboratuvarı</span><span data-l="en">Strategy Lab</span></h3><p><span data-l="tr">Yüzlerce stratejinin komisyon dahil geriye dönük testi, ileri yürüyüş (walk-forward) ve ileriyi görme denetimleri.</span><span data-l="en">Back-tests of hundreds of strategies with costs included, walk-forward validation and look-ahead audits.</span></p></div>
+<div class="card"><div class="ic">🛡️</div><h3><span data-l="tr">Portföy ve Risk</span><span data-l="en">Portfolio &amp; Risk</span></h3><p><span data-l="tr">Profil bazlı dağılım, Sharpe, Sortino, VaR, maksimum düşüş ve sanal (paper) işlem defterleri.</span><span data-l="en">Profile-based allocation, Sharpe, Sortino, VaR, max drawdown and paper-trading ledgers.</span></p></div>
+<div class="card"><div class="ic">🎬</div><h3><span data-l="tr">Eğitim Videoları</span><span data-l="en">Educational Videos</span></h3><p><span data-l="tr">Test sonuçlarını sade bir dille anlatan kısa ve uzun videolar; YouTube, Instagram, Facebook, TikTok ve Telegram’da.</span><span data-l="en">Short and long videos that explain test results in plain language, on YouTube, Instagram, Facebook, TikTok and Telegram.</span></p></div>
+</div></section>
+
+<section class="sec"><h2><span data-l="tr">Nasıl çalışıyoruz?</span><span data-l="en">How we work</span></h2><p class="sub"><span data-l="tr">Her sonuç aynı beş adımdan geçer.</span><span data-l="en">Every result goes through the same five steps.</span></p>
+<div class="steps">
+<div class="step"><b><span data-l="tr">Veri</span><span data-l="en">Data</span></b><span><span data-l="tr">Kaynağı belli, temizlenmiş veri.</span><span data-l="en">Clean data with a known source.</span></span></div>
+<div class="step"><b><span data-l="tr">Test</span><span data-l="en">Test</span></b><span><span data-l="tr">Komisyon ve kayma dahil geriye dönük test.</span><span data-l="en">Back-test including commissions and slippage.</span></span></div>
+<div class="step"><b><span data-l="tr">Doğrulama</span><span data-l="en">Validation</span></b><span><span data-l="tr">Örneklem dışı ve ileriyi görme denetimi.</span><span data-l="en">Out-of-sample and look-ahead checks.</span></span></div>
+<div class="step"><b><span data-l="tr">Yayın</span><span data-l="en">Publish</span></b><span><span data-l="tr">Olumsuz sonuçlar dahil, olduğu gibi anlatılır.</span><span data-l="en">Reported as-is, negatives included.</span></span></div>
+<div class="step"><b><span data-l="tr">Ölçüm</span><span data-l="en">Measure</span></b><span><span data-l="tr">Sanal hesapla canlı takip ve karne.</span><span data-l="en">Live paper tracking and scorecards.</span></span></div>
+</div></section>
+
+<section class="sec"><h2><span data-l="tr">İlkelerimiz</span><span data-l="en">Our principles</span></h2><p class="sub"><span data-l="tr">Araştırmanın değeri, dürüstlüğünden gelir.</span><span data-l="en">Research is only as valuable as it is honest.</span></p>
+<div class="grid">
+<div class="card"><h3><span data-l="tr">Başarısızlığı da yayınlarız</span><span data-l="en">We publish failures too</span></h3><p><span data-l="tr">Test ettiğimiz stratejilerin çoğu “al ve tut”u geçemiyor. Bunu saklamıyoruz.</span><span data-l="en">Most strategies we test fail to beat buy-and-hold. We do not hide that.</span></p></div>
+<div class="card"><h3><span data-l="tr">Maliyetler dahil</span><span data-l="en">Costs included</span></h3><p><span data-l="tr">Komisyon, kayma ve vergi gibi maliyetler sonuca yansıtılır.</span><span data-l="en">Commissions, slippage and similar costs are reflected in the results.</span></p></div>
+<div class="card"><h3><span data-l="tr">Yatırım tavsiyesi değildir</span><span data-l="en">Not investment advice</span></h3><p><span data-l="tr">İçerikler eğitim amaçlıdır; kimseye al-sat önerisi sunmayız.</span><span data-l="en">Content is educational; we never tell anyone what to buy or sell.</span></p></div>
+<div class="card"><h3><span data-l="tr">Şeffaf yöntem</span><span data-l="en">Transparent method</span></h3><p><span data-l="tr">Her videoda kullanılan veri, dönem ve strateji açıkça belirtilir.</span><span data-l="en">Every video states the data, period and strategy used.</span></p></div>
+</div></section>
+
+<section class="sec"><div class="note"><span data-l="tr"><b>Önemli:</b> MMFI lisanslı bir aracı kurum, portföy yönetim şirketi veya yatırım danışmanı değildir ve müşteri adına işlem yapmaz. Paylaşılan tüm sonuçlar geçmiş veriye dayalı simülasyondur.</span><span data-l="en"><b>Important:</b> MMFI is not a licensed broker, asset manager or investment adviser and does not trade on behalf of clients. All results shared are simulations based on historical data.</span></div></section>
+<section class="sec"><h2><span data-l="tr">Bizi nerede bulursunuz?</span><span data-l="en">Where to find us</span></h2><p class="sub"><span data-l="tr">Instagram: <a href="https://www.instagram.com/mmfi_official/">@mmfi_official</a> · Facebook: MMFI sayfası · YouTube · TikTok · Telegram</span><span data-l="en">Instagram: <a href="https://www.instagram.com/mmfi_official/">@mmfi_official</a> · Facebook: MMFI page · YouTube · TikTok · Telegram</span></p></section>
+<footer><div class="row"><div>© 2026 MMFI — Multi Money Flow. <span data-l="tr">Bağımsız araştırma ve eğitim projesi.</span><span data-l="en">Independent research and education project.</span></div><div><span data-l="tr">İletişim</span><span data-l="en">Contact</span>: kadirsuda9@gmail.com</div></div><p style="margin:14px 0 0"><span data-l="tr">Burada yer alan yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Geçmiş performans geleceği garanti etmez.</span><span data-l="en">Nothing on this site is investment advice. Results shown are historical simulations and do not guarantee future performance.</span></p></footer></div><script>
+(function(){var b=document.body;function set(l){b.className=l;try{localStorage.setItem('mmfi_l',l)}catch(e){};var x=document.getElementById('lg');if(x)x.textContent=l=='tr'?'EN':'TR';document.documentElement.lang=l}
+var l='tr';try{l=localStorage.getItem('mmfi_l')||((navigator.language||'tr').slice(0,2)=='tr'?'tr':'en')}catch(e){}
+set(l);document.getElementById('lg').onclick=function(){set(b.className=='tr'?'en':'tr')}})();
+</script></body></html>
