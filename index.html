@@ -1,64 +1,360 @@
-<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MMFI — Multi Money Flow</title><style>
-:root{--bg:#070b1a;--sf:#0d1430;--sf2:#111a3d;--tx:#e6f0ff;--mu:#8ea0cf;--ac:#22e3ff;--ac2:#7c5cff;--bd:#1f2b5a}
-*{box-sizing:border-box}html,body{margin:0}body{background:radial-gradient(1100px 520px at 12% -8%,#16224f 0,var(--bg) 58%);color:var(--tx);font:16px/1.65 Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif}
-a{color:var(--ac)}.w{max-width:1040px;margin:0 auto;padding:0 22px}
-header{display:flex;align-items:center;gap:14px;padding:18px 0}
-.logo{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;font-weight:800;color:#06102a}
-.brand b{font-size:18px;letter-spacing:.02em}.brand small{display:block;color:var(--mu);font-size:12px;margin-top:-2px}
-nav{margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-nav a{color:var(--mu);text-decoration:none;padding:7px 12px;border-radius:9px;font-size:14px}nav a:hover,nav a.on{color:var(--tx);background:var(--sf2)}
-.lang{border:1px solid var(--bd);background:transparent;color:var(--tx);border-radius:9px;padding:6px 11px;cursor:pointer;font:600 13px system-ui}
-.hero{padding:54px 0 36px}.hero .tag{display:inline-block;border:1px solid var(--bd);color:var(--ac);padding:4px 12px;border-radius:99px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
-h1{font-size:clamp(30px,5vw,52px);line-height:1.1;margin:18px 0 14px;letter-spacing:-.02em}
-h1 em{font-style:normal;background:linear-gradient(90deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--mu);font-size:18px;max-width:760px}
-h2{font-size:26px;margin:0 0 6px}.sec{padding:34px 0}.sub{color:var(--mu);margin:0 0 22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.card{background:linear-gradient(180deg,var(--sf),#0a1030);border:1px solid var(--bd);border-radius:16px;padding:20px}
-.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--mu);font-size:14.5px}.ic{font-size:24px;margin-bottom:8px}
-.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
-.step{border:1px solid var(--bd);border-radius:14px;padding:16px;background:var(--sf)}
-.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--ac);color:#06102a;font-weight:800;margin-bottom:8px}
-.step b{display:block}.step span{color:var(--mu);font-size:14px}
-.note{border:1px solid #3a2f12;background:#1a1606;color:#e9d9a0;border-radius:14px;padding:16px 18px;font-size:14.5px}
-.legal h2{margin-top:26px;font-size:20px}.legal p,.legal li{color:#c7d3f2}
-footer{border-top:1px solid var(--bd);margin-top:30px;padding:24px 0 40px;color:var(--mu);font-size:13.5px}
-footer .row{display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between}
-[data-l]{display:none}body.tr [data-l=tr],body.en [data-l=en]{display:revert}
-</style></head><body class="tr"><div class="w"><header><div class="logo">M</div><div class="brand"><b>MMFI</b><small>Multi Money Flow</small></div><nav><a href="index.html" class="on"><span data-l="tr">Ana sayfa</span><span data-l="en">Home</span></a><a href="terms.html" class=""><span data-l="tr">Hizmet Şartları</span><span data-l="en">Terms</span></a><a href="privacy.html" class=""><span data-l="tr">Gizlilik</span><span data-l="en">Privacy</span></a><button class="lang" id="lg">EN</button></nav></header>
-<section class="hero"><span class="tag"><span data-l="tr">Bağımsız araştırma · 2026</span><span data-l="en">Independent research · 2026</span></span>
-<h1><span data-l="tr">Algoritmik işlem araştırması, <em>açıkça test edilir</em>.</span><span data-l="en">Algorithmic trading research, <em>tested in the open</em>.</span></h1>
-<p class="lead"><span data-l="tr">MMFI (Multi Money Flow), piyasa verisini, strateji testlerini ve risk ölçümlerini tek çatıda toplayan bağımsız bir araştırma ve eğitim projesidir. Bulduklarımızı — başarısız çıkanlar dahil — videolarla anlatırız.</span><span data-l="en">MMFI (Multi Money Flow) is an independent research and education project that brings market data, strategy testing and risk measurement under one roof. We explain what we find, including what fails, in educational videos.</span></p></section>
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MMFI — Algoritmik İşlem Araştırması</title>
+<meta name="description" content="MMFI: bağımsız algoritmik işlem araştırma ve eğitim projesi. Strateji Python kodları, test sonuçları ve videolar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0a1d;--tx:#3b3a4f;--mu:#6b6a80;--bg:#f4f3f9;--card:#fff;--line:#e4e2ef;
+  --v1:#6d28d9;--v2:#4f46e5;--v3:#0ea5e9;--lime:#a3e635;--pos:#059669;--neg:#dc2626;
+  --grad:linear-gradient(120deg,#7c3aed 0%,#4f46e5 45%,#0ea5e9 100%);
+  --r:20px;--r-sm:12px;
+  --disp:"Plus Jakarta Sans",Inter,sans-serif;
+  --sans:Inter,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+.nw{white-space:nowrap}
+html{scroll-behavior:smooth}
+html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:8px}
 
-<section class="sec"><h2><span data-l="tr">Ne geliştiriyoruz?</span><span data-l="en">What we build</span></h2><p class="sub"><span data-l="tr">Dört parça, tek bir araştırma hattı.</span><span data-l="en">Four components, one research pipeline.</span></p>
-<div class="grid">
-<div class="card"><div class="ic">🗄️</div><h3><span data-l="tr">Veri Merkezi</span><span data-l="en">Data Center</span></h3><p><span data-l="tr">BIST, küresel hisseler, kripto, döviz, kıymetli madenler ve fonlar için tek, doğrulanmış veri havuzu.</span><span data-l="en">One validated data pool for Borsa Istanbul, global equities, crypto, FX, precious metals and funds.</span></p></div>
-<div class="card"><div class="ic">🧪</div><h3><span data-l="tr">Strateji Laboratuvarı</span><span data-l="en">Strategy Lab</span></h3><p><span data-l="tr">Yüzlerce stratejinin komisyon dahil geriye dönük testi, ileri yürüyüş (walk-forward) ve ileriyi görme denetimleri.</span><span data-l="en">Back-tests of hundreds of strategies with costs included, walk-forward validation and look-ahead audits.</span></p></div>
-<div class="card"><div class="ic">🛡️</div><h3><span data-l="tr">Portföy ve Risk</span><span data-l="en">Portfolio &amp; Risk</span></h3><p><span data-l="tr">Profil bazlı dağılım, Sharpe, Sortino, VaR, maksimum düşüş ve sanal (paper) işlem defterleri.</span><span data-l="en">Profile-based allocation, Sharpe, Sortino, VaR, max drawdown and paper-trading ledgers.</span></p></div>
-<div class="card"><div class="ic">🎬</div><h3><span data-l="tr">Eğitim Videoları</span><span data-l="en">Educational Videos</span></h3><p><span data-l="tr">Test sonuçlarını sade bir dille anlatan kısa ve uzun videolar; YouTube, Instagram, Facebook, TikTok ve Telegram’da.</span><span data-l="en">Short and long videos that explain test results in plain language, on YouTube, Instagram, Facebook, TikTok and Telegram.</span></p></div>
-</div></section>
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 22px;border-radius:99px;font:600 15px var(--sans);transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--ink)}
+.btn-lime:hover{box-shadow:0 10px 30px -8px rgba(163,230,53,.7)}
+.btn-glass{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-glass:hover{background:rgba(255,255,255,.2)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{box-shadow:0 10px 24px -10px rgba(12,10,29,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn svg{width:17px;height:17px}
 
-<section class="sec"><h2><span data-l="tr">Nasıl çalışıyoruz?</span><span data-l="en">How we work</span></h2><p class="sub"><span data-l="tr">Her sonuç aynı beş adımdan geçer.</span><span data-l="en">Every result goes through the same five steps.</span></p>
-<div class="steps">
-<div class="step"><b><span data-l="tr">Veri</span><span data-l="en">Data</span></b><span><span data-l="tr">Kaynağı belli, temizlenmiş veri.</span><span data-l="en">Clean data with a known source.</span></span></div>
-<div class="step"><b><span data-l="tr">Test</span><span data-l="en">Test</span></b><span><span data-l="tr">Komisyon ve kayma dahil geriye dönük test.</span><span data-l="en">Back-test including commissions and slippage.</span></span></div>
-<div class="step"><b><span data-l="tr">Doğrulama</span><span data-l="en">Validation</span></b><span><span data-l="tr">Örneklem dışı ve ileriyi görme denetimi.</span><span data-l="en">Out-of-sample and look-ahead checks.</span></span></div>
-<div class="step"><b><span data-l="tr">Yayın</span><span data-l="en">Publish</span></b><span><span data-l="tr">Olumsuz sonuçlar dahil, olduğu gibi anlatılır.</span><span data-l="en">Reported as-is, negatives included.</span></span></div>
-<div class="step"><b><span data-l="tr">Ölçüm</span><span data-l="en">Measure</span></b><span><span data-l="tr">Sanal hesapla canlı takip ve karne.</span><span data-l="en">Live paper tracking and scorecards.</span></span></div>
-</div></section>
+/* giriş */
+.hero{position:relative;color:#fff;background:#140f33;overflow:hidden;padding-bottom:120px}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(900px 500px at 85% 10%,rgba(14,165,233,.55),transparent 60%),radial-gradient(800px 600px at 10% 90%,rgba(124,58,237,.65),transparent 60%),radial-gradient(600px 400px at 50% 40%,rgba(79,70,229,.45),transparent 70%)}
+.hero > *{position:relative}
+.top{display:flex;align-items:center;gap:28px;height:80px}
+.brand{display:flex;align-items:center;gap:10px;font:700 20px var(--disp);letter-spacing:-.01em}
+.logo{width:36px;height:36px;border-radius:11px;background:#fff;color:var(--v2);display:grid;place-items:center;font:700 17px var(--disp)}
+.nav{display:flex;gap:6px;margin-left:auto;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:5px;border-radius:99px}
+.nav a{font-size:14px;font-weight:500;padding:8px 16px;border-radius:99px;color:rgba(255,255,255,.85);transition:background .15s,color .15s}
+.nav a:hover{background:#fff;color:var(--ink)}
+.top .btn{height:42px;padding:0 18px;font-size:14px}
+.hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-top:72px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:6px 14px 6px 6px;border-radius:99px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2)}
+.badge b{background:var(--lime);color:var(--ink);padding:2px 10px;border-radius:99px;font-size:12px}
+h1{font:800 clamp(40px,6.4vw,80px)/1 var(--disp);letter-spacing:-.025em;margin:24px 0 24px}
+h1 span{color:var(--lime)}
+.lead{font-size:18.5px;line-height:1.6;color:rgba(255,255,255,.82);max-width:540px;margin:0 0 34px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.bigstats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bs{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:var(--r);padding:24px;backdrop-filter:blur(8px)}
+.bs.wide{grid-column:1/-1;display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
+.bs small{display:block;font-size:13px;color:rgba(255,255,255,.7);font-weight:500}
+.bs b{display:block;font:700 clamp(40px,5vw,64px)/1 var(--disp);letter-spacing:-.04em;margin:10px 0 6px}
+.bs.wide b{font-size:clamp(56px,8vw,104px);background:linear-gradient(90deg,#fff,var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bs em{font-style:normal;font-size:13px;color:rgba(255,255,255,.65)}
+.vs{text-align:right;font-size:14px;color:rgba(255,255,255,.75);padding-bottom:14px}
+.vs strong{display:block;font:700 30px var(--disp);color:#fff}
 
-<section class="sec"><h2><span data-l="tr">İlkelerimiz</span><span data-l="en">Our principles</span></h2><p class="sub"><span data-l="tr">Araştırmanın değeri, dürüstlüğünden gelir.</span><span data-l="en">Research is only as valuable as it is honest.</span></p>
-<div class="grid">
-<div class="card"><h3><span data-l="tr">Başarısızlığı da yayınlarız</span><span data-l="en">We publish failures too</span></h3><p><span data-l="tr">Test ettiğimiz stratejilerin çoğu “al ve tut”u geçemiyor. Bunu saklamıyoruz.</span><span data-l="en">Most strategies we test fail to beat buy-and-hold. We do not hide that.</span></p></div>
-<div class="card"><h3><span data-l="tr">Maliyetler dahil</span><span data-l="en">Costs included</span></h3><p><span data-l="tr">Komisyon, kayma ve vergi gibi maliyetler sonuca yansıtılır.</span><span data-l="en">Commissions, slippage and similar costs are reflected in the results.</span></p></div>
-<div class="card"><h3><span data-l="tr">Yatırım tavsiyesi değildir</span><span data-l="en">Not investment advice</span></h3><p><span data-l="tr">İçerikler eğitim amaçlıdır; kimseye al-sat önerisi sunmayız.</span><span data-l="en">Content is educational; we never tell anyone what to buy or sell.</span></p></div>
-<div class="card"><h3><span data-l="tr">Şeffaf yöntem</span><span data-l="en">Transparent method</span></h3><p><span data-l="tr">Her videoda kullanılan veri, dönem ve strateji açıkça belirtilir.</span><span data-l="en">Every video states the data, period and strategy used.</span></p></div>
-</div></section>
+/* bölüm başlıkları */
+section.sec{padding:110px 0}
+.head{text-align:center;max-width:720px;margin:0 auto 56px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font:800 clamp(32px,4.6vw,54px)/1.08 var(--disp);letter-spacing:-.025em;color:var(--ink);margin:12px 0 16px}
+.head p{margin:0;font-size:17px;color:var(--mu)}
 
-<section class="sec"><div class="note"><span data-l="tr"><b>Önemli:</b> MMFI lisanslı bir aracı kurum, portföy yönetim şirketi veya yatırım danışmanı değildir ve müşteri adına işlem yapmaz. Paylaşılan tüm sonuçlar geçmiş veriye dayalı simülasyondur.</span><span data-l="en"><b>Important:</b> MMFI is not a licensed broker, asset manager or investment adviser and does not trade on behalf of clients. All results shared are simulations based on historical data.</span></div></section>
-<section class="sec"><h2><span data-l="tr">Bizi nerede bulursunuz?</span><span data-l="en">Where to find us</span></h2><p class="sub"><span data-l="tr">Instagram: <a href="https://www.instagram.com/mmfi_official/">@mmfi_official</a> · Facebook: MMFI sayfası · YouTube · TikTok · Telegram</span><span data-l="en">Instagram: <a href="https://www.instagram.com/mmfi_official/">@mmfi_official</a> · Facebook: MMFI page · YouTube · TikTok · Telegram</span></p></section>
-<footer><div class="row"><div>© 2026 MMFI — Multi Money Flow. <span data-l="tr">Bağımsız araştırma ve eğitim projesi.</span><span data-l="en">Independent research and education project.</span></div><div><span data-l="tr">İletişim</span><span data-l="en">Contact</span>: kadirsuda9@gmail.com</div></div><p style="margin:14px 0 0"><span data-l="tr">Burada yer alan yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır. Geçmiş performans geleceği garanti etmez.</span><span data-l="en">Nothing on this site is investment advice. Results shown are historical simulations and do not guarantee future performance.</span></p></footer></div><script>
-(function(){var b=document.body;function set(l){b.className=l;try{localStorage.setItem('mmfi_l',l)}catch(e){};var x=document.getElementById('lg');if(x)x.textContent=l=='tr'?'EN':'TR';document.documentElement.lang=l}
-var l='tr';try{l=localStorage.getItem('mmfi_l')||((navigator.language||'tr').slice(0,2)=='tr'?'tr':'en')}catch(e){}
-set(l);document.getElementById('lg').onclick=function(){set(b.className=='tr'?'en':'tr')}})();
-</script></body></html>
+/* stratejiler: kartlar hero'nun üstüne biner */
+#stratejiler{padding-top:0;margin-top:-64px;position:relative}
+.strats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:24px}
+.sc{background:var(--card);border-radius:var(--r);padding:32px;box-shadow:0 1px 0 var(--line),0 24px 60px -30px rgba(40,20,120,.35);display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.sc:hover{transform:translateY(-4px);box-shadow:0 1px 0 var(--line),0 34px 70px -30px rgba(40,20,120,.45)}
+.sc-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ico{width:48px;height:48px;border-radius:14px;background:var(--grad);display:grid;place-items:center;color:#fff;flex:none}
+.ico svg{width:24px;height:24px}
+.src{font-size:12.5px;color:var(--mu);text-align:right;max-width:200px}
+.sc h3{font:700 28px/1.15 var(--disp);letter-spacing:-.02em;color:var(--ink);margin:20px 0 8px}
+.sc .desc{margin:0 0 18px;color:var(--tx);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.tags span{font-size:12.5px;font-weight:600;color:var(--v2);background:#eef0ff;padding:5px 11px;border-radius:99px}
+.hl{display:flex;align-items:flex-end;gap:16px;padding:22px 24px;border-radius:var(--r-sm);background:linear-gradient(120deg,#f5f0ff,#eef7ff);margin-bottom:12px;flex-wrap:wrap}
+.hl b{font:700 64px/0.9 var(--disp);letter-spacing:-.045em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hl span{font-size:14px;color:var(--tx);padding-bottom:6px}
+.hl span strong{display:block;color:var(--ink);font-size:15px}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+.mini div{border:1px solid var(--line);border-radius:var(--r-sm);padding:14px}
+.mini small{display:block;font-size:12px;color:var(--mu);font-weight:500}
+.mini b{display:block;font:700 22px var(--disp);color:var(--ink);letter-spacing:-.02em;margin-top:2px}
+.mini b.pos{color:var(--pos)}.mini b.neg{color:var(--neg)}
+.mini em{display:block;font-style:normal;font-size:12px;color:var(--mu)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.disc{font-size:12.5px;color:var(--mu);margin:16px 0 0}
+
+/* videolar */
+#videolar{background:#fff}
+.vg{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+.vc{grid-column:span 2;display:block;border-radius:var(--r);overflow:hidden;background:var(--bg);transition:transform .2s}
+.vc:nth-child(-n+2){grid-column:span 3}
+.vc:hover{transform:translateY(-4px)}
+.vt{position:relative;aspect-ratio:16/9;overflow:hidden;background:#ddd}
+.vt img{width:100%;height:100%;object-fit:cover}
+.vt:after{content:"";position:absolute;inset:0;background:rgba(12,10,29,.35);opacity:0;transition:opacity .2s}
+.vc:hover .vt:after{opacity:1}
+.pb{position:absolute;left:50%;top:50%;z-index:1;transform:translate(-50%,-50%) scale(.85);opacity:0;transition:opacity .2s,transform .2s;display:inline-flex;align-items:center;gap:8px;color:#fff;font-size:14px;font-weight:700}
+.vc:hover .pb{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.pb i{width:52px;height:52px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
+.pb i:after{content:"";border-left:14px solid var(--ink);border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px}
+.vb{padding:16px 20px 20px}
+.vb small{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--v2)}
+.vb h4{font:600 17px/1.35 var(--disp);color:var(--ink);margin:6px 0 0;letter-spacing:-.01em}
+.pls{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.pl{border-radius:var(--r-sm);padding:20px;color:#fff;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s}
+.pl:hover{transform:translateY(-3px)}
+.pl b{font:700 18px var(--disp);letter-spacing:-.01em}
+.pl span{font-size:13px;opacity:.85}
+.pl:nth-child(1){background:linear-gradient(135deg,#7c3aed,#4f46e5)}
+.pl:nth-child(2){background:linear-gradient(135deg,#4f46e5,#0284c7)}
+.pl:nth-child(3){background:linear-gradient(135deg,#0369a1,#0d9488)}
+.pl:nth-child(4){background:linear-gradient(135deg,#1e1b4b,#6d28d9)}
+.center{text-align:center;margin-top:44px}
+
+/* yöntem */
+.mg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.mc{background:#fff;border-radius:var(--r);padding:28px 24px;border:1px solid var(--line);transition:border-color .2s}
+.mc:hover{border-color:var(--v2)}
+.mc .n{font:700 44px/1 var(--disp);letter-spacing:-.04em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mc h3{font:700 19px var(--disp);color:var(--ink);margin:18px 0 8px}
+.mc p{margin:0;font-size:14.5px}
+.band{margin-top:20px;border-radius:var(--r);overflow:hidden;display:grid;grid-template-columns:3fr 1.3fr;font-weight:600;font-size:14px}
+.band div{padding:18px 22px}
+.band .a{background:#e9e7f5;color:var(--ink)}
+.band .b{background:var(--ink);color:var(--lime)}
+.band small{display:block;font-weight:500;font-size:12.5px;opacity:.75;margin-top:2px}
+
+/* alt bilgi */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:80px 0 44px}
+.fcta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.12)}
+.fcta h3{font:700 clamp(28px,3.6vw,42px)/1.1 var(--disp);color:#fff;margin:0;letter-spacing:-.03em;max-width:620px}
+.fg{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;padding-top:48px}
+.fg h5{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 14px}
+.fg ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fg a{color:#fff;font-size:15px;transition:color .15s}
+.fg a:hover{color:var(--lime)}
+.fg p{font-size:14.5px;margin:14px 0 0;max-width:340px}
+.legal{margin-top:48px;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.55)}
+.legal p{margin:0 0 10px;max-width:900px}
+
+@media (max-width:1000px){
+  .hero-in{grid-template-columns:1fr;padding-top:48px}
+  .mg{grid-template-columns:1fr 1fr}
+  .pls{grid-template-columns:1fr 1fr}
+  .vg{grid-template-columns:1fr 1fr}
+  .vc,.vc:nth-child(-n+2){grid-column:span 1}
+  .vc:first-child{grid-column:1/-1}
+  .fg{grid-template-columns:1fr 1fr}
+  .fg>div:first-child{grid-column:1/-1}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .nav{display:none}
+  .top .btn{margin-left:auto}
+  .hero{padding-bottom:96px}
+  .lead{font-size:16.5px}
+  .bs{padding:18px}
+  .bs.wide{flex-direction:column;align-items:flex-start}
+  .vs{text-align:left;padding-bottom:0}
+  section.sec{padding:72px 0}
+  #stratejiler{padding-top:0}
+  .sc{padding:22px 18px}
+  .hl b{font-size:52px}
+  .mini{gap:8px}
+  .mini div{padding:10px}
+  .mini b{font-size:18px}
+  .mg{grid-template-columns:1fr}
+  .vg{grid-template-columns:1fr 1fr;gap:12px}
+  .vc{border-radius:14px}
+  .vb{padding:12px 12px 14px}
+  .vb small{font-size:10.5px}
+  .vb h4{font-size:14px}
+  .vc:first-child .vb h4{font-size:17px}
+  .pls{grid-template-columns:1fr 1fr;gap:10px}
+  .pl{min-height:96px;padding:14px}
+  .pl b{font-size:15px}
+  .pl span{font-size:12px}
+  .band{grid-template-columns:1fr}
+  .acts .btn{flex:1 1 100%}
+  .mini small{font-size:11px;white-space:nowrap}
+  .center .btn{white-space:normal;height:auto;padding:14px 22px;text-align:center}
+  .fg{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#"><span class="logo">M</span>MMFI</a>
+      <nav class="nav" aria-label="Ana menü">
+        <a href="#stratejiler">Stratejiler</a>
+        <a href="#videolar">Videolar</a>
+        <a href="#yontem">Yöntem</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+      <a class="btn btn-lime" href="https://www.youtube.com/@mmfimultimoneyflowindex" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <div class="hero-in">
+      <div>
+        <span class="badge"><b>Yeni</b>Trend Sniper kodu yayında</span>
+        <h1>Videoda izle.<br><span>Kodu indir.</span><br>Kendin test et.</h1>
+        <p class="lead">MMFI, algoritmik işlem stratejilerini komisyon dahil ve hiç görmediği veride test eden bağımsız bir araştırma ve eğitim projesidir.</p>
+        <div class="cta">
+          <a class="btn btn-lime" href="#stratejiler">Stratejileri gör</a>
+          <a class="btn btn-glass" href="#videolar">Videolar</a>
+        </div>
+      </div>
+      <div class="bigstats" aria-label="Öne çıkan sonuç">
+        <div class="bs wide">
+          <div><small>Trend Sniper · kilitli dönem 2023→ · yıllık</small><b>%46,3</b><em>BIST likit 100, komisyon dahil</em></div>
+          <div class="vs">Al-tut<strong>%9,9</strong></div>
+        </div>
+        <div class="bs"><small>Sharpe</small><b>1,51</b><em>al-tut 0,48</em></div>
+        <div class="bs"><small>Al-tut önünde</small><b>11/16</b><em>yıl</em></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="stratejiler">
+  <div class="wrap">
+    <div class="strats">
+      <article class="sc">
+        <div class="sc-h"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="src">MPL-2.0 · Jamallo'nun göstergesinden türetildi</span></div>
+        <h3>Trend Sniper</h3>
+        <p class="desc">Haar dalgacığıyla yumuşatılmış trend çizgisi yavaş SuperTrend'i yukarı kesince girer; 12 aylık momentum ve 200 günlük ortalama filtresi uygular, trend bozulunca çıkar.</p>
+        <div class="tags"><span>BIST likit 100</span><span>En fazla 10 hisse</span><span>Günlük mum</span><span>Kilitli 2023→</span></div>
+        <div class="hl"><b>%46,3</b><span><strong>yıllık getiri</strong>al-tut %9,9</span></div>
+        <div class="mini">
+          <div><small>Sharpe</small><b>1,51</b><em>al-tut 0,48</em></div>
+          <div><small>Komisyon ×2</small><b class="pos">%44,5</b><em>yıllık</em></div>
+          <div><small>Al-tut önünde</small><b>11/16</b><em>yıl</em></div>
+        </div>
+        <div class="acts">
+          <a class="btn btn-dark" href="kodlar/trend_sniper.py" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Python kodunu indir</a>
+          <a class="btn btn-ghost" href="https://youtu.be/-gqk3hQUA8I" target="_blank" rel="noopener">Videoyu izle</a>
+        </div>
+        <p class="disc">Geçmiş veriye dayalı simülasyondur, yatırım tavsiyesi değildir.</p>
+      </article>
+      <article class="sc">
+        <div class="sc-h"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l5 8 4-5 3 3 6-6M3 19h18"/></svg></span><span class="src">Fikir: BigBeluga · MMFI yazımı</span></div>
+        <h3>Onaylı Likidite Süpürmesi</h3>
+        <p class="desc">Önemli bir dibin altına fitil atıp üstünde kapanan mum, 3 mum içinde onaylanırsa girer; dip altı zarar durdur ve 3 ATR iz süren stopla çıkar.</p>
+        <div class="tags"><span>BIST likit 100</span><span>En fazla 10 hisse</span><span>Günlük mum</span><span>Kilitli 2023→</span></div>
+        <div class="hl"><b>%28,0</b><span><strong>yıllık getiri</strong>al-tut %9,9</span></div>
+        <div class="mini">
+          <div><small>Sharpe</small><b>1,25</b><em>al-tut 0,48</em></div>
+          <div><small>En kötü düşüş</small><b class="neg">−%26</b><em>al-tut −%38</em></div>
+          <div><small>Sepet</small><b>≤10</b><em>hisse</em></div>
+        </div>
+        <div class="acts">
+          <a class="btn btn-dark" href="kodlar/onayli_supurme.py" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>Python kodunu indir</a>
+          <a class="btn btn-ghost" href="https://youtu.be/pjCTvEc3U8M" target="_blank" rel="noopener">Videoyu izle</a>
+        </div>
+        <p class="disc">Geçmiş veriye dayalı simülasyondur, yatırım tavsiyesi değildir.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="videolar">
+  <div class="wrap">
+    <div class="head">
+      <span class="chip">YouTube</span>
+      <h2>Her testin hikâyesi videoda.</h2>
+      <p>Neyi, nasıl test ettik ve ne çıktı; işe yaramayanlar dahil.</p>
+    </div>
+    <div class="vg">
+      <a class="vc" href="https://youtu.be/-gqk3hQUA8I" target="_blank" rel="noopener"><div class="vt"><img src="https://i.ytimg.com/vi/-gqk3hQUA8I/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="pb"><i></i></span></div><div class="vb"><small>Strateji Röntgeni</small><h4>Trend Sniper Stratejisi: Borsa İstanbul'da <span class="nw">Al-Tut'un</span> 5 Katı</h4></div></a>
+      <a class="vc" href="https://youtu.be/pjCTvEc3U8M" target="_blank" rel="noopener"><div class="vt"><img src="https://i.ytimg.com/vi/pjCTvEc3U8M/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="pb"><i></i></span></div><div class="vb"><small>Strateji Röntgeni</small><h4>%28 vs %9,9: Onaylı Süpürme BIST'te <span class="nw">Al-Tut'u</span> Geçti</h4></div></a>
+      <a class="vc" href="https://youtu.be/sqWVU-MiKxg" target="_blank" rel="noopener"><div class="vt"><img src="https://i.ytimg.com/vi/sqWVU-MiKxg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="pb"><i></i></span></div><div class="vb"><small>Haftalık Para Akışı</small><h4>Para Bu Hafta Nereye Aktı? Fon Akışı (5–9 Ekim)</h4></div></a>
+      <a class="vc" href="https://youtu.be/KJkAEVnGVuA" target="_blank" rel="noopener"><div class="vt"><img src="https://i.ytimg.com/vi/KJkAEVnGVuA/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="pb"><i></i></span></div><div class="vb"><small>Laboratuvar Günlüğü</small><h4>10.000 Stratejiyi Test Ettik: İşte Kazanan 20 Strateji</h4></div></a>
+      <a class="vc" href="https://youtu.be/Myjnzj-PvM8" target="_blank" rel="noopener"><div class="vt"><img src="https://i.ytimg.com/vi/Myjnzj-PvM8/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span class="pb"><i></i></span></div><div class="vb"><small>Yapay Zekâ</small><h4>Yapay Zekâ ile Algoritmik İşlem: Borsada YZ Gerçekte Ne Yapıyor?</h4></div></a>
+    </div>
+    <div class="pls">
+      <a class="pl" href="https://www.youtube.com/playlist?list=PLKcOhXf74hKs" target="_blank" rel="noopener"><b>Strateji Röntgeni</b><span>Tek strateji, uçtan uca test →</span></a>
+      <a class="pl" href="https://www.youtube.com/playlist?list=PLI9yYgPHg7fo" target="_blank" rel="noopener"><b>Laboratuvar Günlüğü</b><span>Toplu testler ve bulgular →</span></a>
+      <a class="pl" href="https://www.youtube.com/playlist?list=PLBpKzVwiDXfA" target="_blank" rel="noopener"><b>Haftalık Para Akışı</b><span>Fon ve sektör akışları →</span></a>
+      <a class="pl" href="https://www.youtube.com/playlist?list=PLdesqTJzSyg8" target="_blank" rel="noopener"><b>Yapay Zekâ</b><span>YZ ve algoritmik işlem →</span></a>
+    </div>
+    <div class="center"><a class="btn btn-dark" href="https://www.youtube.com/@mmfimultimoneyflowindex" target="_blank" rel="noopener">@mmfimultimoneyflowindex kanalına git</a></div>
+  </div>
+</section>
+
+<section class="sec" id="yontem">
+  <div class="wrap">
+    <div class="head">
+      <span class="chip">Yöntem</span>
+      <h2>Nasıl test ediyoruz?</h2>
+      <p>Geçmişe uydurulmuş değil, ayarlar kilitlendikten sonra da tutan sonuçlar.</p>
+    </div>
+    <div class="mg">
+      <div class="mc"><span class="n">01</span><h3>Kurulum dönemi</h3><p>Kurallar ve ayarlar 2011-06 → 2022 verisinde seçilir. Bu dönem yalnız tasarım içindir.</p></div>
+      <div class="mc"><span class="n">02</span><h3>Kilitli dönem</h3><p>2023'ten sonrası kilitlenir, ayarlar değişmez. Rakamlar buradan gelir; kıyas eşit ağırlıklı al-tut.</p></div>
+      <div class="mc"><span class="n">03</span><h3>Komisyon dahil</h3><p>Her işleme tek yön %0,09 komisyon yansıtılır; komisyon iki katıyla da yeniden ölçülür.</p></div>
+      <div class="mc"><span class="n">04</span><h3>Ertesi açılış</h3><p>Sinyal günlük mum kapanınca oluşur, işlem ertesi günün açılışında yapılır. Geleceği görmek yok.</p></div>
+    </div>
+    <div class="band" aria-hidden="true">
+      <div class="a">Kurulum 2011-06 → 2022<small>Strateji burada tasarlanır</small></div>
+      <div class="b">Kilitli 2023→<small>Sonuç burada ölçülür</small></div>
+    </div>
+  </div>
+</section>
+
+<footer id="iletisim">
+  <div class="wrap">
+    <div class="fcta">
+      <h3>Yeni strateji kodları her videoyla birlikte burada.</h3>
+      <a class="btn btn-lime" href="https://www.youtube.com/@mmfimultimoneyflowindex" target="_blank" rel="noopener">Kanala abone ol</a>
+    </div>
+    <div class="fg">
+      <div>
+        <a class="brand" href="#" style="color:#fff"><span class="logo">M</span>MMFI</a>
+        <p>Bağımsız algoritmik işlem araştırma ve eğitim projesi.</p>
+      </div>
+      <div>
+        <h5>Takip et</h5>
+        <ul>
+          <li><a href="https://www.youtube.com/@mmfimultimoneyflowindex" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="https://www.instagram.com/mmfi_official/" target="_blank" rel="noopener">Instagram · @mmfi_official</a></li>
+          <li><a href="https://x.com/KadirSuda" target="_blank" rel="noopener">X · @KadirSuda</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim ve yasal</h5>
+        <ul>
+          <li><a href="mailto:kadirsuda9@gmail.com">kadirsuda9@gmail.com</a></li>
+          <li><a href="terms.html">Hizmet Şartları</a></li>
+          <li><a href="privacy.html">Gizlilik Politikası</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p>MMFI lisanslı bir aracı kurum, portföy yönetim şirketi veya yatırım danışmanı değildir; kimse adına işlem yapmaz. Paylaşılan tüm sonuçlar geçmiş veriye dayalı simülasyondur ve gelecekteki getiriyi garanti etmez.</p>
+      <p>Burada yer alan yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti; aracı kurumlar, portföy yönetim şirketleri, mevduat kabul etmeyen bankalar ile müşteri arasında imzalanacak yatırım danışmanlığı sözleşmesi çerçevesinde sunulmaktadır.</p>
+      <p>© 2026 MMFI — Multi Money Flow</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
